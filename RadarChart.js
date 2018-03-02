@@ -51,7 +51,7 @@ var RadarChart = {
 
         var tooltip;
 
-        //Circular segments
+        // Circular segments
         for (var j = 0; j < cfg.levels - 1; j++) {
             var levelFactor = cfg.factor * radius * ((j + 1) / cfg.levels);
             g.selectAll(".levels")
@@ -69,11 +69,11 @@ var RadarChart = {
                 .attr("transform", "translate(" + (cfg.w / 2 - levelFactor) + ", " + (cfg.h / 2 - levelFactor) + ")");
         }
 
-        //Text indicating at what % each level is
+        // Text indicating at what % each level is
         for (var j = 0; j < cfg.levels; j++) {
             var levelFactor = cfg.factor * radius * ((j + 1) / cfg.levels);
             g.selectAll(".levels")
-                .data([1]) //dummy data
+                .data([1]) // Dummy data
                 .enter()
                 .append("svg:text")
                 .attr("x", function (d) { return levelFactor * (1 - cfg.factor * Math.sin(0)); })
@@ -211,7 +211,7 @@ var RadarChart = {
 
             series++;
         });
-        //Tooltip
+        // Tooltip
         tooltip = g.append('text')
             .style('opacity', 0)
             .style('font-family', 'sans-serif')

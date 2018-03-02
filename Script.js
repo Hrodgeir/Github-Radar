@@ -1,13 +1,23 @@
-var w = 500,
-    h = 500;
+var w = 250,
+    h = 250;
 
 var colorscale = d3.scale.category10();
 
-//Legend titles
-var LegendOptions = ['Fred', 'Bob', 'Joe'];
+////////////////////////////////////////////
+///////// Create Line Charts ///////////////
+////////////////////////////////////////////
 
-//Data
-var d = [
+// TODO
+
+////////////////////////////////////////////
+///////// Create Radar Charts //////////////
+////////////////////////////////////////////
+
+// Legend titles
+var LegendOptions = ['GitHub User'];
+
+// Data
+var data1 = [
     [
         { axis: "Commits", value: 0.10 },
         { axis: "Added LoC", value: 0.10 },
@@ -15,64 +25,65 @@ var d = [
         { axis: "Branches", value: 0.70 },
         { axis: "Merges", value: 0.50 },
         { axis: "Pull Requests", value: 0.70 }
-    ], [
-        { axis: "Commits", value: 0.30 },
-        { axis: "Added LoC", value: 0.20 },
-        { axis: "Removed Loc", value: 0 },
-        { axis: "Branches", value: 0.20 },
-        { axis: "Merges", value: 0.50 },
-        { axis: "Pull Requests", value: 0.10 }
-    ], [
-        { axis: "Commits", value: 0.60 },
-        { axis: "Added LoC", value: 0.70 },
-        { axis: "Removed Loc", value: 0.60 },
-        { axis: "Branches", value: 0.10 },
-        { axis: "Merges", value: 0 },
-        { axis: "Pull Requests", value: 0.20 }
     ]
 ];
 
-//Options for the Radar chart, other than default
+var data2 = [
+    [
+        { axis: "Commits", value: 0.30 },
+        { axis: "Added LoC", value: 0.20 },
+        { axis: "Removed LoC", value: 0 },
+        { axis: "Branches", value: 0.20 },
+        { axis: "Merges", value: 0.50 },
+        { axis: "Pull Requests", value: 0.10 }
+    ]
+];
+
+var data3 = [
+    [
+        { axis: "Commits", value: 0.70 },
+        { axis: "Added LoC", value: 0.15 },
+        { axis: "Removed Loc", value: 0 },
+        { axis: "Branches", value: 0.50 },
+        { axis: "Merges", value: 0.90 },
+        { axis: "Pull Requests", value: 0.40 }
+    ]
+];
+
+// Options for the Radar chart, other than default
 var mycfg = {
     w: w,
     h: h,
     maxValue: 1,
     levels: 5,
-    ExtraWidthX: 300
+    ExtraWidthX: 150
 }
 
-//Call function to draw the Radar chart
-//Will expect that data is in %'s
-RadarChart.draw("#chart", d, mycfg);
+// Call function to draw the Radar chart
+// Will expect that data is in %'s
+RadarChart.draw("#radarChart1", data1, mycfg);
+RadarChart.draw("#radarChart2", data2, mycfg);
+RadarChart.draw("#radarChart3", data3, mycfg);
 
 ////////////////////////////////////////////
-/////////// Initiate legend ////////////////
+/////////// Initiate Legend ////////////////
 ////////////////////////////////////////////
 
 var svg = d3.select('#body')
     .selectAll('svg')
     .append('svg')
-    .attr("width", w + 300)
+    .attr("width", w)
     .attr("height", h)
 
-//Create the title for the legend
-var text = svg.append("text")
-    .attr("class", "title")
-    .attr('transform', 'translate(90,0)')
-    .attr("x", w - 70)
-    .attr("y", 10)
-    .attr("font-size", "12px")
-    .attr("fill", "#404040")
-    .text("What percent of the total each user has contributed");
-
-//Initiate Legend	
+// Initiate Legend	
 var legend = svg.append("g")
     .attr("class", "legend")
     .attr("height", 100)
     .attr("width", 200)
-    .attr('transform', 'translate(90,20)')
+    .attr('transform', 'translate(-150,0)')
     ;
-//Create colour squares
+
+// Create colour squares
 legend.selectAll('rect')
     .data(LegendOptions)
     .enter()
@@ -83,7 +94,8 @@ legend.selectAll('rect')
     .attr("height", 10)
     .style("fill", function (d, i) { return colorscale(i); })
     ;
-//Create text next to squares
+
+// Create text next to squares
 legend.selectAll('text')
     .data(LegendOptions)
     .enter()
