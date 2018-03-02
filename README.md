@@ -1,7 +1,7 @@
 # Github-Radar
 A visualization tool created to visualize various Github statistics in the form of a radar chart.
 
-![alt text](https://imgur.com/4ED9w4R.png)
+![alt text](https://i.imgur.com/oTGie2t.png)
 
 Original code obtained from a [radar chart](http://bl.ocks.org/nbremer/6506614) located at bl.ocks.org.  
 Created using D3.js
