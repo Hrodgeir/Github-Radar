@@ -12,7 +12,9 @@
           </div>
         </div>
         <div class="card-body">
+          <span class="name">Commits</span>
           <CommitGraph :repo="repo"/>
+          <span class="name">Issues</span>
           <IssueGraph :repo="repo"/>
           <div class="row">
             <div class="col-6">
