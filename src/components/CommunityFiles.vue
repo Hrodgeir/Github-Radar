@@ -1,7 +1,7 @@
 <template>
   <ul class="list-group">
     <li v-for="(file, filename) in files" class="list-group-item">
-        <span class="float-left" >{{ formatName(filename) }} </span>
+        <span class="float-left" > {{ formatName(filename) }} </span>
         <span class="float-right">
           <a v-if="file && file.name" class="font-weight-bold" :href="file.html_url"> {{ file.name }} </a>
           <a v-if="file" :href="file.html_url || '#'"><icon name="check" class="checkmark"></icon></a>

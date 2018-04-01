@@ -1,5 +1,5 @@
 <template>
-    <div class= "col">
+    <div class="col">
       <div class="card">
         <div class="card-header">
           <span> <button class="closebtn" @click="$emit('removeRepo')"> <icon scale="1.25" name="close"></icon> </button> </span>
@@ -15,9 +15,13 @@
           <CommitGraph :repo="repo"/>
           <IssueGraph :repo="repo"/>
           <div class="row">
-            <CommunityFiles class="col-6" :files="community.files"/>
-            <Badges class="col-6" :repo="repo"/>
-            <Referers :repo="repo"/>
+            <div class="col-6">
+              <span class="name"> <img src="https://assets-cdn.github.com/images/modules/logos_page/GitHub-Mark.png" style="width: 60px; height: 60px;"><img> Repository Metrics </span>
+              <Badges class="row-3" :repo="repo"/>
+              <CommunityFiles class="row-3" :files="community.files"/>
+              <Referers class="row-3" :repo="repo"/>
+            </div>
+            <StackOverflow class="col-6" :repo="repo"/>
           </div>
         </div>
       </div>
@@ -32,6 +36,7 @@ import IssueGraph from './IssueGraph'
 import CommunityFiles from './CommunityFiles'
 import Badges from './Badges'
 import Referers from './Referers'
+import StackOverflow from './StackOverflow'
 
 export default {
   name: 'RepoCard',
@@ -40,7 +45,8 @@ export default {
     CommunityFiles,
     Badges,
     IssueGraph,
-    Referers
+    Referers,
+    StackOverflow
   },
 
   props: {

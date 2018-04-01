@@ -1,32 +1,24 @@
-
-
-
-
 <template>
     <div class="fork">
         <div v-if="thirty">
-            At least {{fork_in_day}} forks in the past 3 days
+            At least {{ fork_in_day }} forks in the past 3 days
             <div v-if="hasRelease">
-                Latest Release: {{ releaseTime}}
+                Latest Release: {{ releaseTime }}
             </div>            
         </div>
         <div v-else>
             {{fork_in_day}} forks in the last 3 days  
             <div v-if="hasRelease">
-                Latest Release: {{releaseTime}}
+                Latest Release: {{ releaseTime }}
             </div>         
         </div>
     </div>
-
-
 </template>
-
 
 <script>
 
 import github from 'octonode';
 import moment from 'moment';
-
 
 export default {
   name : 'Referers',

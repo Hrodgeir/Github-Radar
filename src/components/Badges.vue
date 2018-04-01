@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div style="margin: 2px;">
     <ul class="list-group">
       <li v-for="html in badges" class="list-group-item text-left">
             <span v-html="html"></span>
@@ -65,7 +65,7 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .list-group-item{
-  padding: 5px;
+  padding: 0px;
   border: 0px;
 }
 
@@ -76,14 +76,18 @@ p{
 h1, h2 {
   font-weight: normal;
 }
+
 ul {
-  list-style-type: none;
+  display: inline;
   padding: 0;
 }
+
 li {
-  display: inline-block;
+  list-style: none;
+  display: inline;
   margin: 0 2px;
 }
+
 a {
   color: #42b983;
 }
