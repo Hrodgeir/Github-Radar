@@ -2,10 +2,14 @@
     <div class= "col">
       <div class="card">
         <div class="card-header">
+          <span> <button class="closebtn" @click="$emit('removeRepo')"> <icon scale="1.25" name="close"></icon> </button> </span>
           <span :style="healthStyle" class="health float-left"> <icon style="margin-right: 5px" scale="1.25" name="heartbeat"></icon>{{ community.health_percentage }} %</span>
           <span class="name"> {{ repo.full_name }} </span>
           <span v-if="current" class="other card-subtitle mb-2 text-muted"> {{ current.name }}  </span>
-          <span class="other float-right"> {{ repo.stargazers_count }} <icon name="star"></icon> </span>
+          <span class="stars float-right"> {{ repo.stargazers_count }} <icon name="star"></icon> </span>
+          <div>
+            <span class="description"> {{ repo.description }} </span>
+          </div>
         </div>
         <div class="card-body">
           <CommitGraph :repo="repo"/>
@@ -109,8 +113,22 @@ export default {
 .name {
   font-size: 30px;
 }
-.other {
+.stars {
   font-size: 20px;
+}
+.description {
+  font-size: 15px;
+}
+.closebtn {
+  background-color: red;
+  border: none;
+  border-radius: 5px; 
+  outline: none;
+  color: white;
+  padding: 3px 5px;
+  font-size: 2px;
+  cursor: pointer;
+  margin-right: 5px;
 }
 h1, h2 {
   font-weight: normal;

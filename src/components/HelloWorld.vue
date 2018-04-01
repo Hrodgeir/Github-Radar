@@ -1,10 +1,13 @@
 <template>
     <div class="main">
       <h1>Welcome to Github Radar</h1>
-      <h2>Enter a repository name</h2>
+      <h2>Enter a Repository Name</h2>
       <SearchBar class="col-6 offset-3" v-on:selected="addRepo"/>
       <div class="row offset-1 col-10">
-        <RepoCard v-bind:class="size()" v-for="repo in repos" :repo="repo"/>
+        <RepoCard v-bind:class="size()"
+          v-for="(repo, index) in repos"
+          :repo="repo"
+          v-on:removeRepo="removeRepo(index)"/>
       </div>
     </div>
 </template>
@@ -41,6 +44,10 @@ export default {
 
     addRepo (repo) {
       this.repos.push(repo)
+    },
+
+    removeRepo (index) {
+      this.repos.splice(index, 1);
     },
 
     size () {
