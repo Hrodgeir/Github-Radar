@@ -1,13 +1,10 @@
-# Github-Radar
+# Github Radar
 
-A visualization tool created to visualize various Github statistics in the form of a radar chart.
+A visualization tool created to visualize various Github repository health statistics.
 
-![alt text](https://i.imgur.com/oTGie2t.png)
+![alt text](https://i.imgur.com/1LfnP9Q.png)
 
-Original code obtained from a [radar chart](http://bl.ocks.org/nbremer/6506614) located at bl.ocks.org.  
-Created using D3.js
-
-SENG480D - Information Visualization  
+SENG480D - Information Visualization
 Group Project - Team 1
 * Jasmine Yadeta
 * Jacqueline Reynolds
@@ -21,7 +18,7 @@ Install node and npm
 npm install
 npm run dev
 ```
-Navigate to `localhost:3000` 
+Navigate to `localhost:8080` 
 
 ### Try it out
 https://githubradar.info/
