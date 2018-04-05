@@ -21,4 +21,4 @@ npm run dev
 Navigate to `localhost:8080` 
 
 ### Try it out
-[githubradar.info]
+https://githubradar.info
